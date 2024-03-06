@@ -6,21 +6,29 @@ import fastifyApollo, {
 } from "@as-integrations/fastify";
 import { typesMerged } from "./type-defs/index.js";
 import { resolvers } from "./resolvers/index.js";
+import { DateTimeTypeDefinition } from "graphql-scalars";
 import { FtboContext, FtboContextFunction } from "./context.js";
 
 const fastify = Fastify();
 
 const apollo = new ApolloServer<FtboContext>({
-  typeDefs: typesMerged,
+  typeDefs: [DateTimeTypeDefinition, typesMerged],
   resolvers: [resolvers],
   plugins: [fastifyApolloDrainPlugin(fastify)],
 });
 
-await apollo.start();
-await fastify.register(cors);
+const start = async () => {
+  try {
+    await apollo.start();
+    await fastify.register(cors);
+    await fastify.register(fastifyApollo(apollo), {
+      context: FtboContextFunction,
+    });
+    await fastify.listen({ port: 4000 });
+  } catch (err) {
+    fastify.log.error(err);
+    process.exit(1);
+  }
+};
 
-await fastify.register(fastifyApollo(apollo), {
-  context: FtboContextFunction,
-});
-
-await fastify.listen({ port: 4000 });
+start();

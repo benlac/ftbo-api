@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "type": "module",
   "author": "Benoit Lacombled <benoit.lacombled@gmail.com>",
   "scripts": {
-    "dev-server": "node --watch-path=./src src/index.js",
     "compile": "tsc",
-    "start": "npm run compile && node ./dist/index.js",
+    "start": "yarn run compile && node ./dist/index.js",
     "watch": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/index.js\""
   },
   "dependencies": {
@@ -21,18 +19,17 @@
     "@graphql-tools/schema": "^10.0.0",
     "@graphql-tools/stitch": "^9.0.3",
     "@graphql-tools/wrap": "^10.0.1",
-    "@keyv/redis": "^2.8.0",
     "apollo-datasource": "^3.3.2",
     "dotenv": "^16.3.1",
     "fastify": "^4.26.2",
     "graphql": "^16.8.1",
-    "http": "^0.0.1-security",
-    "keyv": "^4.5.4",
+    "graphql-scalars": "^1.22.5",
     "knex": "^3.0.1",
     "pg": "^8.11.3"
   },
   "devDependencies": {
     "@types/node": "^20.11.24",
+    "ts-node": "^10.9.2",
     "tsc-watch": "^6.0.4",
     "typescript": "^5.2.2"
   }

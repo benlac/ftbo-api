@@ -1,0 +1,5 @@
+type SaleEvent {
+  id: ID!
+  startDate: DateTime!
+  location: String!
+}

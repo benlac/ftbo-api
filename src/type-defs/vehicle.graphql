@@ -1,0 +1,31 @@
+type Vehicle {
+  id: ID!
+  marque: String!
+  model: String!
+  price: String!
+  picture: String!
+}
+
+input VehicleInput {
+  model: String!
+  location: String!
+  price: String
+  vpRating: String
+  awardedPrice: String
+  locationId: ID!
+  year: Int!
+  brandNewPrice: String
+  isSold: Boolean!
+  image: String
+  kilometers: String
+}
+
+type SaveVehiclesError {
+  message: String!
+}
+
+type SaveVehiclesSuccess {
+  success: Boolean!
+}
+
+union SaveVehiclesResult = SaveVehiclesError | SaveVehiclesSuccess

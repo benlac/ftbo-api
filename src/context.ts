@@ -1,11 +1,12 @@
 import { ApolloFastifyContextFunction } from "@as-integrations/fastify";
+import dataSources from "./data-sources";
 
 export interface FtboContext {
-  greeting: string;
+  dataSources: unknown;
 }
 
 export const FtboContextFunction: ApolloFastifyContextFunction<
   FtboContext
-> = async (request, reply) => ({
-  greeting: "Hello World!!",
+> = async () => ({
+  dataSources,
 });
