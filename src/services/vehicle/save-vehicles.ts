@@ -1,22 +1,8 @@
-import { removeNullUndefined } from "../../utils/remove-null-undefined";
+import normalizeVehicle from "../../normalize/normalize-vehicle";
 
 export async function saveVehicles(vehicles, dataSources) {
   try {
-    const entries = vehicles.map((vehicle) =>
-      removeNullUndefined({
-        model: vehicle.model,
-        location: vehicle.location,
-        location_id: vehicle.locationId,
-        year: vehicle.year,
-        price: vehicle.price,
-        vp_rating: vehicle.vpRating,
-        brand_new_price: vehicle.brandNewPrice,
-        is_sold: vehicle.isSold,
-        awarded_price: vehicle.awardedPrice,
-        image: vehicle.image,
-        kilometers: vehicle.kilometers,
-      })
-    );
+    const entries = vehicles.map(normalizeVehicle);
     await dataSources.vehicles.saveVehicles(entries);
 
     return {
