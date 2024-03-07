@@ -1,22 +1,22 @@
-import { removeNullUndefined } from "../utils/remove-null-undefined";
-
-export default (vehicle: any) =>
-  removeNullUndefined({
+export default (vehicle) => {
+  return {
+    id: vehicle.id,
     model: vehicle.model,
     location: vehicle.location,
-    location_id: vehicle.locationId,
+    locationId: vehicle.location_id,
     year: vehicle.year,
     price: vehicle.price,
-    vp_rating: vehicle.vpRating,
-    brand_new_price: vehicle.brandNewPrice,
-    is_sold: vehicle.isSold,
-    awarded_price: vehicle.awardedPrice,
+    vpRating: vehicle.vp_rating,
+    awardedPrice: vehicle.awarded_price,
+    brandNewPrice: vehicle.brand_new_price,
+    isSold: vehicle.is_sold,
     image: vehicle.image,
     kilometers: vehicle.kilometers,
-    vp_id: vehicle.vehicleId,
-    url: vehicle.vehicleUrl,
-    sale_date: vehicle.saleDate,
-    is_after_sales: vehicle.isAfterSales,
-    end_after_sales: vehicle.endAfterSales,
-    sold_price: vehicle.soldPrice,
-  });
+    vehicleId: vehicle.vp_id,
+    url: vehicle.url,
+    saleDate: vehicle.sale_date,
+    isAfterSales: vehicle.is_after_sales,
+    endAfterSales: vehicle.end_after_sales,
+    soldPrice: vehicle.sold_price,
+  };
+};

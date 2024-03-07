@@ -1,4 +1,4 @@
-import normalizeVehicle from "../../normalize/normalize-vehicle";
+import normalizeVehicle from "../../normalize/normalize-input-vehicle";
 
 export async function saveVehicles(vehicles, dataSources) {
   try {

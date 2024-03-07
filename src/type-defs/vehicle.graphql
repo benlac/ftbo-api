@@ -1,9 +1,29 @@
 type Vehicle {
   id: ID!
-  marque: String!
   model: String!
-  price: String!
-  picture: String!
+  location: String!
+  locationId: ID!
+  year: Int!
+  price: Int
+  vpRating: Int
+  awardedPrice: Int
+  brandNewPrice: Int
+  isSold: Boolean!
+  image: String
+  kilometers: Int
+  vehicleId: String
+  url: String
+  saleDate: String
+  isAfterSales: Boolean
+  endAfterSales: String
+  soldPrice: Int
+}
+
+input VehicleSelectors {
+  maxKm: Int
+  minPrice: Int
+  maxPrice: Int
+  limit: Int
 }
 
 input VehicleInput {
@@ -34,4 +54,13 @@ type SaveVehiclesSuccess {
   success: Boolean!
 }
 
+type VehicleError {
+  message: String!
+}
+
+type VehicleSuccess {
+  results: [Vehicle]!
+}
+
 union SaveVehiclesResult = SaveVehiclesError | SaveVehiclesSuccess
+union VehiclesResult = VehicleError | VehicleSuccess
