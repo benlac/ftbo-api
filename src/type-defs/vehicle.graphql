@@ -9,15 +9,21 @@ type Vehicle {
 input VehicleInput {
   model: String!
   location: String!
-  price: String
-  vpRating: String
-  awardedPrice: String
   locationId: ID!
   year: Int!
-  brandNewPrice: String
+  price: Int
+  vpRating: Int
+  brandNewPrice: Int
   isSold: Boolean!
+  awardedPrice: Int
   image: String
-  kilometers: String
+  kilometers: Int
+  vehicleId: String
+  vehicleUrl: String
+  saleDate: String
+  isAfterSales: Boolean
+  endAfterSales: String
+  soldPrice: Int
 }
 
 type SaveVehiclesError {

@@ -6,12 +6,12 @@ export async function up(knex: Knex): Promise<void> {
     table.string("model");
     table.string("location");
     table.string("location_id");
-    table.string("price");
-    table.string("vp_rating");
-    table.string("awarded_price");
+    table.integer("price");
+    table.integer("vp_rating");
+    table.integer("awarded_price");
     table.boolean("is_sold");
     table.integer("year");
-    table.string("brand_new_price");
+    table.integer("brand_new_price");
     table.timestamps();
   });
 }

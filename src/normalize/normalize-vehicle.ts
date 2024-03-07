@@ -18,4 +18,5 @@ export default (vehicle: any) =>
     sale_date: vehicle.saleDate,
     is_after_sales: vehicle.isAfterSales,
     end_after_sales: vehicle.endAfterSales,
+    sold_price: vehicle.soldPrice,
   });
